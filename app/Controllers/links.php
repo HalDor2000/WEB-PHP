@@ -1,5 +1,8 @@
 <?php
-$title = "Mis Proyectos";
+$title = 'Proyectos';
+
+
+
 
 $links = $db->query('SELECT * FROM links ORDER BY id DESC')->get();
 

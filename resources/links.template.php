@@ -11,20 +11,25 @@
 
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-16">
 
-  <?php foreach($links as $link): ?>
+    <?php foreach ($links as $link): ?>
 
-    <article>
-        <h3 class="text-lg font-semibold text-gray-900 hover:text-gray-600">
-            <a href="<?= $link['url'] ?>" target="_blank" rel="noopener noreferrer">
-                <?= $link['title'] ?>
-            </a>
-        </h3>
+        <article>
+            <h3 class="text-lg font-semibold text-gray-900 hover:text-gray-600">
+                <a href="<?= $link['url'] ?>" target="_blank" rel="noopener noreferrer">
+                    <?= $link['title'] ?>
+                </a>
+            </h3>
 
-        <p class="mt-2 text-sm text-gray-600"><?= $link['description'] ?></p>
-    </article>
+            <p class="mt-2 text-sm text-gray-600"><?= $link['description'] ?></p>
+        </article>
 
     <?php endforeach; ?>
 
+</div>
+<div class="my-16">
+    <a href="/links/create" class="text-sm font-semibold text-gray-900">
+        Registrar &rarr;
+    </a>
 </div>
 
 <?php require __DIR__ . '/partials/footer.php' ?>

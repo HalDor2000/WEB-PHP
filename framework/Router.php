@@ -1,4 +1,5 @@
 <?php
+namespace Framework;
 
 class Router
 {
@@ -22,6 +23,11 @@ class Router
     public function delete(string $uri, array $action)
     {
         $this->routes['DELETE'][$uri] = $action;
+    }
+
+    public function put(string $uri, array $action)
+    {
+        $this->routes['PUT'][$uri] = $action;
     }
 
     public function run()

@@ -1,4 +1,4 @@
-<?php require __DIR__ . '/partials/header.php' ?>
+<?php resource_path('header') ?>
 
 
 <div class="border-b border-gray-200 pb-8 mb-8">
@@ -48,4 +48,4 @@
     </a>
 </div>
 
-<?php require __DIR__ . '/partials/footer.php' ?>
+<?php resource_path('footer') ?>

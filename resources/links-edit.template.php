@@ -1,4 +1,4 @@
-<?php require __DIR__ . '/partials/header.php' ?>
+<?php resource_path('header') ?>
 
 
 <div class="border-b border-gray-200 pb-8 mb-8">
@@ -18,6 +18,7 @@
                 name="title" 
                 class="w-full outline-1 outline-gray-300 rounded-md px-3 py-2 text-gray-900" 
                 value="<?= $_POST['title'] ?? $link['title'] ?>">
+                value="<?= old('title',$link['title']) ?>">
             </div>
         </div>
 
@@ -57,4 +58,4 @@
     <?php endif; ?>
 </div>
 
-<?php require __DIR__ . '/partials/footer.php' ?>
+<?php resource_path('footer') ?>

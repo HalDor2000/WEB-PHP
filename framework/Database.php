@@ -1,6 +1,10 @@
 <?php
+
 namespace Framework;
+
 use PDO;
+use PSpell\Config;
+
 class Database
 {
     private $connection;
@@ -8,11 +12,20 @@ class Database
 
     public function __construct()
     {
-        $dsn = 'mysql:host=127.0.0.1;dbname=web-php;charset=utf8mb4';
-        $this->connection = new PDO($dsn, 'root', '');
-    }
+        //$dsn = 'mysql:host=127.0.0.1;dbname=web-php;charset=utf8mb4';
+        $dsn = sprintf(
+            'mysql:host=%s;dbname=%s;charset=%s',
+            config('host','localhost'),
+            config('dbname','web'),
+            config('charset')
+        );
 
-    public function query($sql, $params=[])
+        //var_dump($dsn); die();
+
+        $this->connection = new PDO($dsn, config('username'), config('password'), Config('options',[]));
+    }
+   
+    public function query($sql, $params = [])
     {
         /* return $this->connection->query($sql)->fetchAll(PDO::FETCH_ASSOC); */
         $this->statement = $this->connection->prepare($sql);
@@ -21,12 +34,14 @@ class Database
         return $this;
     }
 
-    public function get() {
-        return $this->statement->fetchAll(PDO::FETCH_ASSOC);
+    public function get()
+    {
+        return $this->statement->fetchAll();
     }
 
-    public function firstOrFail(){
-        $result = $this->statement->fetch(PDO::FETCH_ASSOC);
+    public function firstOrFail()
+    {
+        $result = $this->statement->fetch();
         if (!$result) {
             exit('404 Not Found');
         }

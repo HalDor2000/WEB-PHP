@@ -80,3 +80,14 @@ if (!function_exists('resource_path')) {
         require root_path("resources/partials/$path.php");
     }
 }
+
+if (!function_exists('isAuthenticated')) {
+
+
+    function isAuthenticated(): bool
+
+    {
+        return (bool) ($_SESSION['user'] ?? false);
+
+    }
+}

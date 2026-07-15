@@ -74,8 +74,6 @@ class Router
 
         if ($middleware) {
             Middleware::run(new $middleware());
-
-            
         }
 
         [$controller, $method] = $action;

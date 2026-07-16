@@ -20,15 +20,14 @@ class AuthController
             'password' =>   'required|min:6',
         ]);
 
-        $login = (new Authenticate())->login(
-            $_POST['email'],
-            $_POST['password']
-        );
+        $login = (new Authenticate())->login($_POST['email'], $_POST['password']);
 
-        if ($login) {
-            redirect('/');
+        if (!$login) {
+            session()->setFlash('errors', ['Invalid Email or Password.']);
+            session()->setFlash('old_email', $_POST['email'] ?? '');
+            back();
         }
-     
+        redirect('/');
     }
 
     public function logout()

@@ -6,6 +6,7 @@ use App\Controllers\AuthController;
 use App\Controllers\PostController;
 use App\Controllers\LinkController;  // Import the Link
 use Framework\Middleware\Authenticated;
+use Framework\Middleware\Guest;
 
 $router->get('/',             [HomeController::class, 'index']);
 $router->get('/about',        [AboutController::class, 'index']);
@@ -18,8 +19,9 @@ $router->put('/links/update',     [LinkController::class, 'update'], Authenticat
 $router->post('/links/store', [LinkController::class, 'store'], Authenticated::class); 
 $router->delete('/links/delete', [LinkController::class, 'destroy'], Authenticated::class);
 
-$router->get('/login', [AuthController::class, 'login']);
-$router->post('/login', [AuthController::class, 'authenticate']);
+$router->get('/login', [AuthController::class, 'login'], Guest::class);
+$router->post('/login', [AuthController::class, 'authenticate'], Guest::class);
+
 $router->post('/logout', [AuthController::class, 'logout'], Authenticated::class);
 
 

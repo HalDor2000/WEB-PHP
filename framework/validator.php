@@ -54,13 +54,17 @@ class Validator
 
     protected function redirectIfFailed(): void
     {
+        session()->setFlash('errors', $this->errors);
+
+        foreach ($this->data as $key => $value) {
+            session()->setFlash("old_$key", $value);
+        }
         back();
     }
 
-    public static function make(array $data, array $rules, bool $autoRedirect=true): self 
+    public static function make(array $data, array $rules, bool $autoRedirect = true): self
     {
-        return new self ($data, $rules, $autoRedirect);
-
+        return new self($data, $rules, $autoRedirect);
     }
 
     public function passes(): bool

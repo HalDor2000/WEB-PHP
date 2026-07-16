@@ -6,7 +6,7 @@
 </div>
 
 <div class="w-full max-w-xl mx-auto">
-    
+    <?=  alert() ?>
     <form action="/links/update?id=<?= $link['id'] ?>" method="POST">
         <input type="hidden" name="_method" value="PUT">
 
@@ -49,13 +49,8 @@
         </div>
     </form>
 
-    <?php if (!empty($errors)): ?>
-    <ul class="mt-4 text-red-500">
-        <?php foreach ($errors as $error): ?>
-        <li class="text-xs">&rarr; <?= $error ?></li>
-        <?php endforeach; ?>
-    </ul>
-    <?php endif; ?>
+   
+    <?=  errors() ?>
 </div>
 
 <?php resource_path('footer') ?>

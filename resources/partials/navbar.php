@@ -4,7 +4,7 @@
             <a href="/" class="<?= requestIs('/') ?>        rounded-md px-3 py-2 text-sm font-medium">Inicio</a>
             <a href="/about" class="<?= requestIs('/about') ?>   rounded-md px-3 py-2 text-sm font-medium">Acerca de</a>
             <a href="/links" class="<?= requestIs('/links') ?>   rounded-md px-3 py-2 text-sm font-medium">Proyectos</a>
-            <a href="/login" class="<?= requestIs('/login') ?>   rounded-md px-3 py-2 text-sm font-medium">Login</a>
+            <!-- <a href="/login" class="<?= requestIs('/login') ?>   rounded-md px-3 py-2 text-sm font-medium">Login</a> -->
 
             <?php if (isAuthenticated()): ?>
             <form action="/logout" method="POST">

@@ -41,7 +41,7 @@ class LinkController
                 'description'   => $_POST['description'],
             ]
         );
-        redirect('/links');
+        redirect('/links/create', 'Proyecto registrado correctamente');
     }
 
     public function edit()
@@ -80,7 +80,7 @@ class LinkController
             ]
         );
 
-        redirect('/links');
+         redirect('/links/edit?id=' . $link['id'], 'Proyecto actualizado correctamente.');
     }
 
 
